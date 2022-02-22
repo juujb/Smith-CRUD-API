@@ -1,11 +1,11 @@
-interface User {
+interface NewUser {
   username: string,
   classe: string,
   level: number,
   password: string,
 }
 
-interface NewUser {
+interface UserId {
   id: number,
   username: string,
   classe: string,
@@ -13,4 +13,4 @@ interface NewUser {
   password: string,
 }
 
-export { User, NewUser };
+export { UserId, NewUser };

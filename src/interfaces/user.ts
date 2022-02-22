@@ -13,4 +13,9 @@ interface UserId {
   password: string,
 }
 
-export { UserId, NewUser };
+interface Login {
+  username: string,
+  password: string,
+}
+
+export { UserId, NewUser, Login };

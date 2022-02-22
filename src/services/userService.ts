@@ -7,7 +7,7 @@ dotenv.config();
 
 const secret: string = process.env.SECRET || 'segreto';
 
-const create = async (body: NewUser) => {
+export const create = async (body: NewUser) => {
   const { id, username } = await User.create(body);
   const token = jwt.sign(
     { data: { id, username } },
@@ -21,4 +21,7 @@ const create = async (body: NewUser) => {
   return token;
 };
 
-export default { create };
+export const login = async (body: object) => {
+  console.log(body);
+  return 'token';
+};

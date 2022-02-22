@@ -1,11 +1,17 @@
 import { Request, Response } from 'express';
-import userService from '../services/userService';
+import { create, login } from '../services/userService';
 import Status from '../enums/status';
 
-const create = async (req: Request, res: Response) => {
+const singUp = async (req: Request, res: Response) => {
   const { body } = req;
-  const token = await userService.create(body);
+  const token = await create(body);
   res.status(Status.CREATED).json({ token });
 };
 
-export default { create };
+const singIn = async (req: Request, res: Response) => {
+  const { body } = req;
+  const token = await login(body);
+  res.status(Status.OK).json({ token });
+};
+
+export default { singUp, singIn };

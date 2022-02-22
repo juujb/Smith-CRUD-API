@@ -1,8 +1,16 @@
-interface Create {
+interface User {
   username: string,
   classe: string,
   level: number,
   password: string,
 }
 
-export default Create;
+interface NewUser {
+  id: number,
+  username: string,
+  classe: string,
+  level: number,
+  password: string,
+}
+
+export { User, NewUser };

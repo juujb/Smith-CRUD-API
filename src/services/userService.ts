@@ -1,4 +1,4 @@
-const create = (body: object):string => {
+const create = async (body: object) => {
   console.log(body);
   return 'token';
 };

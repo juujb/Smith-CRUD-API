@@ -13,11 +13,11 @@ const create = async (product: NewProduct): Promise<ProductId> => {
   return newUser;
 };
 
-const getAll = async (): Promise<Product[]> => {
-  const [data] = await connection.query<ResultSetHeader>(
+const getAll = async () => {
+  const [data] = await connection.query(
     'SELECT * FROM Trybesmith.Products',
   );
-  return data;
+  return data as ProductId[];
 };
 
 const Product = {

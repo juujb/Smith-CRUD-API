@@ -23,9 +23,20 @@ const findLogin = async (login: Login) => {
   return rows;
 };
 
+const validateLogin = async (login: Login) => {
+  const { username } = login;
+  const [data] = await connection.execute(
+    'SELECT * FROM Trybesmith.Users WHERE username = ?',
+    [username],
+  );
+  const [rows] = data as UserId[];
+  return rows;
+};
+
 const User = {
   create,
   findLogin,
+  validateLogin,
 };
 
 export default User;

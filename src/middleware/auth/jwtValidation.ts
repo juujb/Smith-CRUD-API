@@ -1,6 +1,8 @@
 import * as jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { Request, Response } from 'express';
+import User from '../../models/User';
+import { UserId } from '../../interfaces/user';
 import Status from '../../enums/status';
 
 dotenv.config();
@@ -20,8 +22,6 @@ const regex = /^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/;
 
 const jwtValidation = async (req: Request, res: Response, next: () => void) => {
   const token = req.headers.authorization;
-  const { id, username } = req.body;
-
   if (!token) {
     return res.status(Status.UNAUTHORIZED).json({ error: 'Token not found' });
   }
@@ -31,8 +31,9 @@ const jwtValidation = async (req: Request, res: Response, next: () => void) => {
   }
 
   const { data } = <jwt.LoginJwtPayload> jwt.verify(token, secret);
+  const user: UserId = await User.validateLogin({ username: data.username });
 
-  if (data.id !== id && data.username !== username) {
+  if (!user) {
     return res.status(Status.UNAUTHORIZED).json({ error: 'Invalid token' });
   }
 

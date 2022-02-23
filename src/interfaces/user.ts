@@ -15,7 +15,7 @@ interface UserId {
 
 interface Login {
   username: string,
-  password: string,
+  password?: string,
 }
 
 export { UserId, NewUser, Login };

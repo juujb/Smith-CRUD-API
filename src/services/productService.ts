@@ -7,5 +7,6 @@ export const create = async (body: NewProduct) => {
 };
 
 export const getAll = async () => {
-  console.log('oi');
+  const list = await Product.getAll();
+  return list;
 };

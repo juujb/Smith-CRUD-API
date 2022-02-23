@@ -10,7 +10,7 @@ const createProduct = async (req: Request, res: Response) => {
 
 const getProducts = async (req: Request, res: Response) => {
   const list = await getAll();
-  res.status(Status.CREATED).json(list);
+  res.status(Status.OK).json(list);
 };
 
 export { createProduct, getProducts };

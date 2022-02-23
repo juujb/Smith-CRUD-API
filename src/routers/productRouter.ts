@@ -7,6 +7,6 @@ const router = Router();
 
 router.route('/products')
   .post(jwtValidation, nameValidation, amountValidation, createProduct)
-  .get(getProducts);
+  .get(jwtValidation, getProducts);
 
 export default router;

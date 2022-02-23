@@ -5,6 +5,8 @@ import Status from '../../enums/status';
 
 dotenv.config();
 
+// https://stackoverflow.com/questions/68403905/how-to-add-additional-properties-to-jwtpayload-type-from-types-jsonwebtoken
+
 declare module 'jsonwebtoken' {
   export interface LoginJwtPayload extends jwt.JwtPayload {
     id: number,

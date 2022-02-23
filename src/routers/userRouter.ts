@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import userController from '../controller/userController';
+import { singUp } from '../controller/userController';
 import classValidation from '../middleware/classValidation';
 import levelValidation from '../middleware/levelValidation';
 import passwordValidation from '../middleware/passwordValidation';
@@ -13,7 +13,7 @@ router.route('/users')
     classValidation,
     levelValidation, 
     passwordValidation,
-    userController.singUp,
+    singUp,
   );
 
 export default router;

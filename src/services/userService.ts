@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import User from '../models/User';
-import { NewUser } from '../interfaces/user';
+import { NewUser, UserId } from '../interfaces/user';
 
 dotenv.config();
 
@@ -21,7 +21,17 @@ export const create = async (body: NewUser) => {
   return token;
 };
 
-export const login = async (body: object) => {
-  console.log(body);
-  return 'token';
+export const login = async (body: UserId) => {
+  const { id, username } = body;
+
+  const token = jwt.sign(
+    { data: { id, username } },
+    secret,
+    {
+      algorithm: 'HS256',
+      expiresIn: '7d',
+    },
+  );
+
+  return token;
 };

@@ -20,7 +20,7 @@ Essa API, possui alguns endpoints (seguindo os princípios do REST) que estão c
 ### INSTRUÇÕES :
 
 1. Clone o repositório
-  * `git clone git@github.com:luanamonero/crud-api-products.git`.
+  * `git clone git@github.com:juujb/Smith-CRUD-API.git`.
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd crud-api-products`
 

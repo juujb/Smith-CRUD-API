@@ -21,9 +21,9 @@ Essa API, possui alguns endpoints (seguindo os princípios do REST) que estão c
 ### INSTRUÇÕES :
 
 1. Clone o repositório
-  * `git clone git@github.com:juujb/Smith-CRUD-API.git`.
+  * `git clone git@github.com:juujb/smith-crud.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd crud-api-products`
+    * `cd smith-crud`
 
 2. Instale as dependências
   * `npm install`
